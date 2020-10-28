@@ -111,7 +111,7 @@ class integration(object):
                         entry[key] = "None"
                 entry['message'] = 'Scan Result - ' + entry['Synopsis']
                 entry['hostname'] = 'tenable.io'
-                self.ds.writeJSONEvent(entry)
+                self.ds.writeJSONEvent(entry, flatten = False)
 
     def nessus_main(self): 
 
