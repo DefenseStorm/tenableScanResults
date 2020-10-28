@@ -30,6 +30,6 @@ This integration is intended to be installed on the DefenseStorm DVM.  You shoul
 			access_key = <Access Key from Tenable.io>
 			secret_key = <Secret Key from Tenable.io>
 
-5. Add the following entry to the root crontab so the script will run every 5 minutes:
+5. Add the following entry to the root crontab so the script will run once a day at midnight, or change as needed.
 
-		*/5 * * * * cd /usr/local/tenableScanResults; ./tenableScanResults.py
+		0 0 * * * cd /usr/local/tenableScanResults; ./tenableScanResults.py
