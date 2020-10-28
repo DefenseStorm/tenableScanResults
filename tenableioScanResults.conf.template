@@ -1,0 +1,11 @@
+[json]
+app_name = Tenable.io
+version = 1.0
+
+[tenable]
+pid_file = pidfile
+state_dir = ./state
+access_key = 
+secret_key = 
+sleep_period = 5
+days_ago = 2
