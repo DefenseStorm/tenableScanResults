@@ -1,3 +1,6 @@
+NOTE: This integration is not ready for prudoction use yet.  Contact Alex if you want to play with it.
+
+
 Tenable.io Integration for DefenseStorm
 
 This integration is intended to be installed on the DefenseStorm DVM.  You should perform the install as the "root" user and the installation should be done in the /usr/local/ directory.
