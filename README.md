@@ -1,4 +1,4 @@
-NOTE: This integration is not ready for prudoction use yet.  Contact Alex if you want to play with it.
+NOTE: This integration is not ready for prodoction use yet.  Contact Alex if you want to play with it.
 
 
 Tenable.io Integration for DefenseStorm
