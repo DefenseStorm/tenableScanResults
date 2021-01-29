@@ -5,6 +5,10 @@ Tenable.io Integration for DefenseStorm
 
 This integration is intended to be installed on the DefenseStorm DVM.  You should perform the install as the "root" user and the installation should be done in the /usr/local/ directory.
 
+This integration requires the pytenable python module.  To install it, use the command:
+
+pip3 install pytenable
+
 1. Pull the repository and submodules:
 
 		git clone --recurse-submodules https://github.com/DefenseStorm/tenableScanResults.git
