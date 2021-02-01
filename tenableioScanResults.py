@@ -29,6 +29,13 @@ from DefenseStorm import DefenseStorm
 
 class integration(object):
 
+    JSON_field_mappings = {
+        'Risk' : 'severity',
+        'Host' : 'hostname',
+        'IP Address' : 'endpoint_ip',
+        'MAC Address' : 'mac_address'
+    }
+
     payload = {
         "format": "csv",
         "reportContents": {
@@ -111,7 +118,7 @@ class integration(object):
                         entry[key] = "None"
                 entry['message'] = 'Scan Result - ' + entry['Synopsis']
                 entry['hostname'] = 'tenable.io'
-                self.ds.writeJSONEvent(entry, flatten = False)
+                self.ds.writeJSONEvent(entry, JSON_field_mappings = self.JSON_field_mappings, flatten = False)
 
     def nessus_main(self): 
 
@@ -144,6 +151,8 @@ class integration(object):
                 if h.get('status') == 'completed']
             if len(completed) > 0:
                 history = completed[0]
+                if self.last_run > history['last_modification_date']:
+                    continue
                 filename = (scan['name'] + '-' + (datetime.utcfromtimestamp(history['last_modification_date'])).strftime('%Y-%m-%d %H:%M:%S') + 'Z').replace(' ', '_')
                 with open(filename + '.csv', 'wb') as report_file:
                     self.tio.scans.export(scan['id'], format='csv', fobj=report_file)
