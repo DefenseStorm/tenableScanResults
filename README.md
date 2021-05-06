@@ -39,4 +39,4 @@ pip3 install pytenable
 
 5. Add the following entry to the root crontab so the script will run once a day at midnight, or change as needed.
 
-		0 0 * * * cd /usr/local/tenableScanResults; ./tenableScanResults.py
+		0 0 * * * cd /usr/local/tenableScanResults; ./tenableioScanResults.py
