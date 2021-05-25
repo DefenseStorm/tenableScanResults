@@ -33,7 +33,10 @@ class integration(object):
         'Risk' : 'severity',
         'Host' : 'hostname',
         'IP Address' : 'endpoint_ip',
-        'MAC Address' : 'mac_address'
+        'MAC Address' : 'mac_address',
+        'Plugin ID' : 'scan_id',
+        'CVSS' : 'reputation_score',
+        'Vulnerability State' : 'state',
     }
 
     payload = {
@@ -146,6 +149,8 @@ class integration(object):
 
         scan_list = self.tio.scans.list(last_modified=datetime.fromtimestamp(self.last_run))
         for scan in scan_list:
+            if scan['status'] != 'completed':
+                continue
             details = self.tio.scans.results(scan['id'])
             completed = [h for h in details.get('history', list())
                 if h.get('status') == 'completed']
